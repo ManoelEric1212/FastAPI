@@ -16,7 +16,7 @@ class ContasPagarReceberRequest(BaseModel):
     valor: Decimal
     tipo: str
 
-@router.get("/", response_model=List[ContasPagarReceberResponse])
+@router.get("", response_model=List[ContasPagarReceberResponse])
 def listar_contas():
     return [
         ContasPagarReceberResponse(
@@ -32,7 +32,7 @@ def listar_contas():
         tipo="PAGAR"
         ),
     ]
-@router.post("/", response_model=ContasPagarReceberResponse, status_code=201)
+@router.post("", response_model=ContasPagarReceberResponse, status_code=201)
 def criar_conta(conta: ContasPagarReceberRequest):
     return ContasPagarReceberResponse(
         id=3,
